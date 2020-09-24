@@ -1,6 +1,3 @@
-/* Global Variables */
-const baseURL = 'https://api.openweathermap.org/data/2.5/weather?zip='
-const weatherAPIKey = '&appid=216f554eba2fc696fb25a057d168a2e9';
 
 let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();

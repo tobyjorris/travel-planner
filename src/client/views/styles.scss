@@ -1,0 +1,157 @@
+body{
+  background: #fffff8;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+#app{
+  display: grid;
+  grid-template-rows: 75px 100px auto;
+  grid-template-columns: 300px 300px 300px;
+  grid-template-areas:
+          "hdr hdr hdr"
+          "zip feel gen-btn"
+          "entry entry entry";
+  background: #f23557;
+  height: 100vh;
+  width: 100%;
+  color: #f0d43a;
+  justify-content: center;
+  grid-gap: 1em;
+  font-size: 20px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.entry{
+  grid-area: entry;
+  background: rgba(59, 74, 107, .4);
+  padding: 10px;
+}
+
+.zip {
+  grid-area: zip;
+}
+
+.feel {
+  grid-area: feel;
+}
+
+.gen-btn {
+  grid-area: gen-btn;
+  align-self: end;
+}
+
+#generate {
+  height: 62px;
+}
+
+.headline {
+  grid-area: hdr;
+  justify-self: center;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+/*  Basic Styling To Override Default For Basic HTML Elements */
+label{
+  display:block;
+  font-size: 27px;
+}
+
+input{
+  display:block;
+  height: 60px;
+  width: 100%;
+  background:#22b2da;
+  color: #f0d43a;
+  font-size: 20px;
+  font-family: 'Oswald', sans-serif;
+  border: none;
+}
+
+button{
+  width: 100%;
+  background: #3b4a6b;
+  color: #f0d43a;
+  font-size: 26px;
+  font-family: 'Oswald', sans-serif;
+  border: none;
+  box-shadow: 2px 4px 5px #444;
+}
+
+h1{
+  font-size: 36px;
+}
+
+textarea{
+  background:#22b2da;
+  align-self: end;
+  height: 56px;
+  width: 100%;
+  color: #f0d43a;
+  font-size: 20px;
+  font-family: 'Oswald', sans-serif;
+}
+/* Reset style for HTML element on active to have no border*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+/* Style for Placeholder Text*/
+::placeholder { /* Firefox, Chrome, Opera */
+  color: #f0d43a;
+  font-family: 'Oswald', sans-serif;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #f0d43a;
+  font-family: 'Oswald', sans-serif;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #f0d43a;
+  font-family: 'Oswald', sans-serif;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  #app {
+    grid-template-columns: 230px 230px 230px;
+  }
+
+  .feel > label {
+    font-size: 23px;
+    margin: 3px 0 4px 0;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  #app {
+    grid-template-rows: 65px 110px 110px 65px auto;
+    grid-template-columns: 460px;
+    grid-template-areas:
+            "hdr"
+            "zip"
+            "feel"
+            "gen-btn"
+            "entry";
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  #app {
+    grid-template-rows: 65px 110px 110px 65px auto;
+    grid-template-columns: 300px;
+    grid-template-areas:
+            "hdr"
+            "zip"
+            "feel"
+            "gen-btn"
+            "entry";
+  }
+
+  .headline {
+    font-size: 40px;
+  }
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Travel Planner</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+
+    </div>
+
+    <div id="app">
+        <div class="holder headline">
+            Adventure Starts Here
+        </div>
+        <div class="holder destination">
+            <label for="destination">Where are you going?</label>
+            <input type="text" id="destination" placeholder="enter destination">
+        </div>
+        <div class="holder departure">
+            <label for="departureDate">When are you leaving?</label>
+            <input type="date" id="departureDate" placeholder="enter departure date">
+        </div>
+        <div class="holder submit-btn">
+            <button id="submit" type="submit" onsubmit="Client.handleSubmit(event)">Book trip</button>
+        </div>
+        <div class="holder tripCard" id="tripCard"></div>
+    </div>
+
+</body>
+</html>

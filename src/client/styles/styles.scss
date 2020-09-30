@@ -5,17 +5,18 @@ body{
 }
 
 #app{
+  padding-top: 150px;
   display: grid;
   grid-template-rows: 75px 100px auto;
   grid-template-columns: 300px 300px 300px;
   grid-template-areas:
           "hdr hdr hdr"
-          "zip feel gen-btn"
-          "entry entry entry";
-  background: #f23557;
+          "depart arrive submit-btn"
+          "trip trip trip";
+  background-image: url("../assets/background.jpg");
   height: 100vh;
   width: 100%;
-  color: #f0d43a;
+  color: white;
   justify-content: center;
   grid-gap: 1em;
   font-size: 20px;
@@ -23,25 +24,24 @@ body{
 }
 
 .entry{
-  grid-area: entry;
-  background: rgba(59, 74, 107, .4);
+  grid-area: trip;
   padding: 10px;
 }
 
-.zip {
-  grid-area: zip;
+.depart {
+  grid-area: depart;
 }
 
-.feel {
-  grid-area: feel;
+.arrive {
+  grid-area: arrive;
 }
 
-.gen-btn {
-  grid-area: gen-btn;
+.submit-btn {
+  grid-area: submit-btn;
   align-self: end;
 }
 
-#generate {
+#submit {
   height: 62px;
 }
 
@@ -62,8 +62,8 @@ input{
   display:block;
   height: 60px;
   width: 100%;
-  background:#22b2da;
-  color: #f0d43a;
+  background: darkorange;
+  color: white;
   font-size: 20px;
   font-family: 'Oswald', sans-serif;
   border: none;
@@ -71,8 +71,8 @@ input{
 
 button{
   width: 100%;
-  background: #3b4a6b;
-  color: #f0d43a;
+  background: darkorange;
+  color: white;
   font-size: 26px;
   font-family: 'Oswald', sans-serif;
   border: none;
@@ -83,15 +83,6 @@ h1{
   font-size: 36px;
 }
 
-textarea{
-  background:#22b2da;
-  align-self: end;
-  height: 56px;
-  width: 100%;
-  color: #f0d43a;
-  font-size: 20px;
-  font-family: 'Oswald', sans-serif;
-}
 /* Reset style for HTML element on active to have no border*/
 input:focus,
 select:focus,
@@ -101,17 +92,17 @@ button:focus {
 }
 /* Style for Placeholder Text*/
 ::placeholder { /* Firefox, Chrome, Opera */
-  color: #f0d43a;
+  color: white;
   font-family: 'Oswald', sans-serif;
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: #f0d43a;
+  color: white;
   font-family: 'Oswald', sans-serif;
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
-  color: #f0d43a;
+  color: white;
   font-family: 'Oswald', sans-serif;
 }
 
@@ -132,9 +123,9 @@ button:focus {
     grid-template-columns: 460px;
     grid-template-areas:
             "hdr"
-            "zip"
-            "feel"
-            "gen-btn"
+            "depart"
+            "arrive"
+            "submit-btn"
             "entry";
   }
 }
@@ -145,9 +136,9 @@ button:focus {
     grid-template-columns: 300px;
     grid-template-areas:
             "hdr"
-            "zip"
-            "feel"
-            "gen-btn"
+            "depart"
+            "arrive"
+            "submit-btn"
             "entry";
   }
 

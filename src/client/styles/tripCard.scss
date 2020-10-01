@@ -1,7 +1,3 @@
-.tripCard {
-
-}
-
 .tripCardBackground {
   grid-area: tripDetails;
   display: grid;
@@ -18,6 +14,7 @@
 
 .tripImage {
   grid-area: img;
+  margin: 5px;
   width: 480px;
   height: 300px;
   justify-self: center;
@@ -26,10 +23,12 @@
 
 .tripDateTitle {
   grid-area: departTitle;
+  text-decoration: underline;
 }
 
 .tripDestinationTitle {
   grid-area: destTitle;
+  text-decoration: underline;
 }
 
 .tripDate {
@@ -91,9 +90,75 @@ button {
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
+  .tripCardBackground {
+    grid-template-columns: 230px 230px;
+    grid-template-rows: 25px 25px auto 210px 30px;
+    grid-template-areas:
+        "departTitle destTitle"
+        "depart destination"
+        "weather weather"
+        "img img"
+        "save cancel";
+  }
 
+  .tripImage {
+    width: 400px;
+    height: 200px;
+    align-self: start;
+    justify-self: start;
+  }
+
+  .tripCardBackground {
+    font-size: 18px;
+  }
+
+  .save {
+    width: 110px;
+    font-size: 20px;
+  }
+
+  .cancel {
+    width: 110px;
+    font-size: 20px;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
 
+  .tripCardBackground {
+    grid-template-columns: 130px 130px;
+    grid-template-rows: 30px 30px auto 135px 30px 30px;
+    grid-template-areas:
+            "destTitle destination"
+            "departTitle depart"
+            "weather weather"
+            "img img"
+            "save save"
+            "cancel cancel";
+  }
+
+  .tripImage {
+    width: 250px;
+    height: 125px;
+    align-self: start;
+    justify-self: start;
+  }
+
+  .tripCardBackground {
+    font-size: 18px;
+  }
+
+  .save {
+    width: 110px;
+    font-size: 20px;
+  }
+
+  .cancel {
+    width: 110px;
+    font-size: 20px;
+  }
+
+  ul {
+    padding: 10px;
+  }
 }

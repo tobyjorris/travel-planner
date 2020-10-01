@@ -1,4 +1,3 @@
-
 function updateUI(trip) {
     const tripHolder = document.querySelector('#tripCard')
     const weatherList = document.createElement('ul')
@@ -26,12 +25,10 @@ function updateUI(trip) {
             <div class="tripDestination">${trip.cityName}</div>
             <img class="tripImage" src="${trip.imageURL}"  alt="Picture of ${trip.cityName}">
             <div class="weatherHolder">Weather Forecast:</div> 
-            <button type="submit" onsubmit="localStorageService.writeToLocalStorage(${trip})" class="save btn">Save Trip</button>
+            <button type="button" class="save btn">Save Trip</button>
             <button class="cancel btn">Cancel Trip</button>
         </div>
-        
     `
-
     const weatherHolder = document.querySelector('.weatherHolder')
     weatherHolder.appendChild(weatherList)
 
@@ -40,7 +37,3 @@ function updateUI(trip) {
 module.exports = {
     updateUI
 }
-
-// <div class="holder trip">
-//
-//</div>

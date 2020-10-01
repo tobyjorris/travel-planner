@@ -4,9 +4,9 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv/config');
 const convertCeltoFahr = require('../client/js/celsiusToFahrenheit')
-const pixabayAPI = require('./services/APIs/pixabayAPI');
-const geonamesAPI = require('./services/APIs/geonamesAPI');
-const weatherAPI = require('./services/APIs/weatherAPI');
+const pixabayAPI = require('./APIs/pixabayAPI');
+const geonamesAPI = require('./APIs/geonamesAPI');
+const weatherAPI = require('./APIs/weatherAPI');
 
 const app = express()
 

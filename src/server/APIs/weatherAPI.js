@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const calculateDateDif = require('../../../client/js/dateCalculator');
+const calculateDateDif = require('../../client/js/dateCalculator');
 
 async function getWeatherbitData(latitude, longitude, departureDate) {
     const daysTillDeparture = calculateDateDif.calculateDateDifference(departureDate);

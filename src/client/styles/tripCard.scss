@@ -20,6 +20,8 @@
   grid-area: img;
   width: 480px;
   height: 300px;
+  justify-self: center;
+  align-self: center;
 }
 
 .tripDateTitle {
@@ -61,4 +63,37 @@ button {
   }
   justify-self: center;
   width: 150px;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .tripCardBackground {
+    grid-template-columns: 410px 150px 150px;
+  }
+
+  .tripImage {
+    width: 400px;
+    height: 280px;
+  }
+
+  .tripCardBackground {
+    font-size: 18px;
+  }
+
+  .save {
+    width: 110px;
+    font-size: 20px;
+  }
+
+  .cancel {
+    width: 110px;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
 }

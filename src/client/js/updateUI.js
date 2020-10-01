@@ -23,7 +23,7 @@ function updateUI(trip) {
             <div class="tripDateTitle">Departure Date: </div>
             <div class="tripDate">${trip.departureDate}</div>
             <div class="tripDestinationTitle">Destination:</div>
-            <div class="tripDestination">${trip.cityName} ${trip.state}</div>
+            <div class="tripDestination">${trip.cityName}</div>
             <img class="tripImage" src="${trip.imageURL}"  alt="Picture of ${trip.cityName}">
             <div class="weatherHolder">Weather Forecast:</div> 
             <button type="submit" onsubmit="localStorageService.writeToLocalStorage(${trip})" class="save btn">Save Trip</button>

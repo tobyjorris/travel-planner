@@ -23,7 +23,7 @@ body{
   font-family: 'Oswald', sans-serif;
 }
 
-.entry{
+.tripCard{
   grid-area: trip;
   padding: 10px;
 }
@@ -43,6 +43,7 @@ body{
 
 #submit {
   height: 62px;
+  width: 100%;
 }
 
 .headline {
@@ -70,7 +71,6 @@ input{
 }
 
 button{
-  width: 100%;
   background: darkorange;
   color: white;
   font-size: 26px;

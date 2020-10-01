@@ -1,17 +1,33 @@
 .tripCard {
+
+}
+
+.tripCardBackground {
+  grid-area: tripDetails;
   display: grid;
-  grid-template-rows: 75px 100px 100px;
+  grid-template-rows: 30px 30px 215px 40px;
   grid-template-columns: 500px 200px 200px;
   grid-template-areas:
+          "img departTitle destTitle"
           "img depart destination"
           "img weather weather"
           "img save cancel";
+  padding: 10px;
+  background: rgba(0 , 0, 0, 0.4);
 }
 
 .tripImage {
   grid-area: img;
-  width: 300px;
-  height: 200px;
+  width: 480px;
+  height: 300px;
+}
+
+.tripDateTitle {
+  grid-area: departTitle;
+}
+
+.tripDestinationTitle {
+  grid-area: destTitle;
 }
 
 .tripDate {
@@ -26,16 +42,23 @@
   grid-area: weather;
 }
 
+.weatherList {
+  margin: 0;
+}
+
+.weatherIsList {
+  font-size: 15px;
+  justify-content: flex-start;
+}
+
 button {
   .cancel {
     grid-area: cancel;
-    width: 75px!important;
-    height: 40px!important;
   }
 
   .save {
     grid-area: save;
-    width: 75px!important;
-    height: 40px!important;
   }
+  justify-self: center;
+  width: 150px;
 }

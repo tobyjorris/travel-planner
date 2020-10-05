@@ -15,7 +15,7 @@ function buildWeather(tripDetails, weatherData, weatherResponse) {
             })
         }
     } else if (daysTillDeparture > 7 && daysTillDeparture <=16) {
-        builtWeatherObject.weatherMessage = `The forecast average temperature for ${tripDetails.cityName} on the day of your arrival is:`
+        builtWeatherObject.weatherMessage = `Typical weather for ${tripDetails.cityName} on the day of your arrival is:`
         builtWeatherObject.weather.push({
             date: weatherResponse.data[weatherData.daysTillDeparture].valid_date,
             low: convert.convertCelsiusToFahrenheit(weatherResponse.data[weatherData.daysTillDeparture].low_temp),

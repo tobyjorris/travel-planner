@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv/config');
-const convertCeltoFahr = require('../client/js/celsiusToFahrenheit')
+const buildWeather = require('../client/js/weatherHelpers/weatherBuilder')
 const pixabayAPI = require('./APIs/pixabayAPI');
 const geonamesAPI = require('./APIs/geonamesAPI');
 const weatherAPI = require('./APIs/weatherAPI');
@@ -20,14 +20,14 @@ const listening = port => {
     console.log('listening on port 8010', port)
 }
 
-app.post('/bookTrip', async function (req, res) {
+app.post('/bookTrip', async (req, res) => {
     const tripDetails = {
-        cityName: req.body.city,
         departureDate: req.body.date,
     };
 
     // get latitude & longitude of trip destination from Geonames API - needed to retrieve weather from Weatherbit
-    await geonamesAPI.getGeonamesData(tripDetails.cityName).then(geonamesData => {
+    await geonamesAPI.getGeonamesData(req.body.city).then(geonamesData => {
+        tripDetails.cityName = geonamesData.geonames[0].name;
         tripDetails.lat = Number(geonamesData.geonames[0].lat);
         tripDetails.lon = Number(geonamesData.geonames[0].lng);
         tripDetails.state = geonamesData.geonames[0].adminName1;
@@ -36,31 +36,11 @@ app.post('/bookTrip', async function (req, res) {
 
     // uses lat & lon of destination to retrieve forecast of trip destination, departure date to determine which forecast to return
     await weatherAPI.getWeatherbitData(tripDetails.lat, tripDetails.lon, tripDetails.departureDate).then(weatherData => {
-        weatherData.response.then(weather => {
-            // console.log('weather', weather)
-            tripDetails.weather = [];
-            if (weatherData.daysTillDeparture <= 7) {
-                tripDetails.weatherMessage = `The weather for the next week in ${tripDetails.cityName} is:`
-                for (const day of weather.data) {
-                    tripDetails.weather.push({
-                        date: day.valid_date,
-                        low: convertCeltoFahr.convertCelsiusToFahrenheit(day.low_temp),
-                        high: convertCeltoFahr.convertCelsiusToFahrenheit(day.high_temp),
-                    })
-                }
-            } else if (weatherData.daysTillDeparture > 7 && weatherData.daysTillDeparture <=16) {
-                tripDetails.weatherMessage = `The weather forecast & average temperatures for ${tripDetails.cityName} on ${tripDetails.departureDate} is:`
-                console.log(weather.data[weatherData.daysTillDeparture])
-                    tripDetails.weather.push({
-                        date: weather.data[weatherData.daysTillDeparture].valid_date,
-                        low: convertCeltoFahr.convertCelsiusToFahrenheit(weather.data[weatherData.daysTillDeparture].low_temp),
-                        high: convertCeltoFahr.convertCelsiusToFahrenheit(weather.data[weatherData.daysTillDeparture].high_temp),
-                        avgLow: convertCeltoFahr.convertCelsiusToFahrenheit(weather.data[weatherData.daysTillDeparture].min_temp),
-                        avgHigh: convertCeltoFahr.convertCelsiusToFahrenheit(weather.data[weatherData.daysTillDeparture].max_temp)
-                    })
-            } else if (weatherData.daysTillDeparture > 16) {
-                tripDetails.weatherMessage = `Weather Data is currently unavailable. Check back closer to trip date.`
-            }
+        weatherData.response.then(weatherResponse => {
+            const weatherObject = buildWeather.buildWeather(tripDetails, weatherData, weatherResponse);
+            tripDetails.weather = weatherObject.weather;
+            tripDetails.weatherMessage = weatherObject.weatherMessage;
+            console.log('tripDetails', tripDetails)
         })
     }).catch(error => console.log('Weatherbit Error:', error));
 

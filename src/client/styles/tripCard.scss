@@ -7,7 +7,7 @@
           "img departTitle destTitle"
           "img depart destination"
           "img weather weather"
-          "img save cancel";
+          "img cancel cancel";
   padding: 10px;
   background: rgba(0 , 0, 0, 0.4);
 }
@@ -45,6 +45,7 @@
 
 .weatherList {
   margin: 0;
+  padding: 20px;
 }
 
 .weatherIsList {
@@ -53,14 +54,9 @@
 }
 
 button {
-  .cancel {
-    grid-area: cancel;
-  }
-
-  .save {
-    grid-area: save;
-  }
+  grid-area: cancel;
   justify-self: center;
+  align-self: center;
   width: 150px;
 }
 
@@ -78,11 +74,6 @@ button {
     font-size: 18px;
   }
 
-  .save {
-    width: 110px;
-    font-size: 20px;
-  }
-
   .cancel {
     width: 110px;
     font-size: 20px;
@@ -98,7 +89,7 @@ button {
         "depart destination"
         "weather weather"
         "img img"
-        "save cancel";
+        "cancel cancel";
   }
 
   .tripImage {
@@ -112,9 +103,8 @@ button {
     font-size: 18px;
   }
 
-  .save {
-    width: 110px;
-    font-size: 20px;
+  .weatherMessage {
+    width: 420px;
   }
 
   .cancel {
@@ -127,13 +117,12 @@ button {
 
   .tripCardBackground {
     grid-template-columns: 130px 130px;
-    grid-template-rows: 30px 30px auto 135px 30px 30px;
+    grid-template-rows: 30px 30px auto 135px 30px;
     grid-template-areas:
             "destTitle destination"
             "departTitle depart"
             "weather weather"
             "img img"
-            "save save"
             "cancel cancel";
   }
 
@@ -146,11 +135,6 @@ button {
 
   .tripCardBackground {
     font-size: 18px;
-  }
-
-  .save {
-    width: 110px;
-    font-size: 20px;
   }
 
   .cancel {

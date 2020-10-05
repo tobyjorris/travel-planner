@@ -7,10 +7,6 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="navbar">
-
-    </div>
-
     <div id="app">
         <div class="holder headline">
             Adventure Starts Here
@@ -30,6 +26,12 @@
 
         </div>
     </div>
-
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js');
+            });
+        }
+    </script>
 </body>
 </html>

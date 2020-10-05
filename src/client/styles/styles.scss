@@ -4,6 +4,12 @@ body{
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+input, button {
+  &:hover {
+    box-shadow: 2px 4px 5px #444;
+  }
+}
+
 #app{
   padding-top: 150px;
   display: grid;
@@ -76,7 +82,6 @@ button{
   font-size: 26px;
   font-family: 'Oswald', sans-serif;
   border: none;
-  box-shadow: 2px 4px 5px #444;
 }
 
 h1{

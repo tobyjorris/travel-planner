@@ -1,5 +1,4 @@
 import { updateUI } from "../index";
-import { localStorageService } from "./services/localstorage";
 
 export const handleSubmit = async event => {
     event.preventDefault();
@@ -8,18 +7,16 @@ export const handleSubmit = async event => {
         date: document.querySelector('#departureDate').value,
     }
 
-    await postDataToServer('http://localhost:8010/bookTrip', tripInformation)
-        .then(serverTripData => {
-            console.log(serverTripData);
-            localStorageService.writeToLocalStorage(serverTripData);
-
-            //save data to local storage using localstorage.js
-
-            //update UI (might need to manually remove the loading spinner?)
-            updateUI(serverTripData)
-    })
-
-    // can I render a spinning animation here to indicate loading? Then stop it in the 'then' block of postData?
+    if (tripInformation.city !== "" && tripInformation.date !== "") {
+        await postDataToServer('http://localhost:8010/bookTrip', tripInformation)
+            .then(serverTripData => {
+                console.log(serverTripData)
+                window.localStorage.setItem('trip', JSON.stringify(serverTripData))
+                updateUI(serverTripData)
+            })
+    } else {
+        alert('Must Enter Destination & Date!')
+    }
 
 }
 

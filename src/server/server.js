@@ -56,4 +56,5 @@ app.post('/bookTrip', async (req, res) => {
     }
 })
 
-const server = app.listen(port, listening(port));
+module.exports = app;
+

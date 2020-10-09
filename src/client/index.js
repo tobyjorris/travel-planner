@@ -8,7 +8,6 @@ import { buildWeather } from './js/weatherHelpers/weatherBuilder'
 import './styles/styles.scss'
 import './styles/footer.scss'
 import './styles/tripCard.scss'
-
 import './assets/background.jpg'
 
 export {

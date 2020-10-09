@@ -83,7 +83,7 @@ button {
 @media (min-width: 481px) and (max-width: 768px) {
   .tripCardBackground {
     grid-template-columns: 230px 230px;
-    grid-template-rows: 25px 25px auto 210px 30px;
+    grid-template-rows: 25px 25px auto 300px 30px;
     grid-template-areas:
         "departTitle destTitle"
         "depart destination"
@@ -94,7 +94,7 @@ button {
 
   .tripImage {
     width: 400px;
-    height: 200px;
+    height: 280px;
     align-self: start;
     justify-self: start;
   }
@@ -117,7 +117,7 @@ button {
 
   .tripCardBackground {
     grid-template-columns: 130px 130px;
-    grid-template-rows: 30px 30px auto 135px 30px;
+    grid-template-rows: 30px 30px auto 190px 30px;
     grid-template-areas:
             "destTitle destination"
             "departTitle depart"
@@ -128,7 +128,7 @@ button {
 
   .tripImage {
     width: 250px;
-    height: 125px;
+    height: 175px;
     align-self: start;
     justify-self: start;
   }
@@ -144,5 +144,9 @@ button {
 
   ul {
     padding: 10px;
+  }
+
+  .weatherIsList {
+    font-size: 14px;
   }
 }

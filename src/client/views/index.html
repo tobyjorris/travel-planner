@@ -13,14 +13,14 @@
         </div>
         <div class="holder destination">
             <label for="destination">Where are you going?</label>
-            <input type="text" id="destination" placeholder="enter destination">
+            <input type="text" id="destination" required="required" placeholder="enter destination">
         </div>
         <div class="holder departure">
             <label for="departureDate">When are you leaving?</label>
-            <input type="date" id="departureDate" placeholder="enter departure date">
+            <input type="date" id="departureDate" required="required">
         </div>
         <div class="holder submit-btn">
-            <button id="submit" type="submit" onsubmit="Client.handleSubmit(event)">Book trip</button>
+            <button id="submit" type="submit">Book trip</button>
         </div>
         <div class="holder tripCard" id="tripCard">
 

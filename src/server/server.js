@@ -40,13 +40,18 @@ app.post('/bookTrip', async (req, res) => {
             const weatherObject = buildWeather.buildWeather(tripDetails, weatherData, weatherResponse);
             tripDetails.weather = weatherObject.weather;
             tripDetails.weatherMessage = weatherObject.weatherMessage;
-            console.log('tripDetails', tripDetails)
         })
     }).catch(error => console.log('Weatherbit Error:', error));
 
     // retrieves URL of first image returned from Pixabay using city name as a search term
+    // if no results are returned, it uses a default image of an airplane
     await pixabayAPI.getPixabayImg(tripDetails.cityName).then(pixabayData => {
-        tripDetails.imageURL = pixabayData.hits[0].webformatURL;
+        console.log('pixabay total', pixabayData.total)
+        if (pixabayData.total === 0) {
+            tripDetails.imageURL = '/src/client/assets/default.jpg'
+        } else {
+            tripDetails.imageURL = pixabayData.hits[0].webformatURL;
+        }
     }).catch(error => console.log('Pixabay Error:', error));
 
     try {

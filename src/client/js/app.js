@@ -13,6 +13,11 @@ export const app = () => {
         console.log(existingTrip)
         updateUI(existingTrip)
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const submitButton = document.querySelector('#submit');
+        submitButton.addEventListener('click', handleSubmit)
+    })
 }
 
 app();

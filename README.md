@@ -18,6 +18,19 @@ Run `npm run build-prod` to create a new dist folder for production.
 
 This app uses an express server running on Port 8010. Run `npm start` to launch. 
 
+## Environment Variables
+
+To correctly install your own environment variables, follow these steps:
+
+- create a `.env` file in the root directory
+- create these entries:
+
+``` javascript
+GEONAMES_KEY=<yourkey>
+WEATHERBIT_KEY=<yourkey>
+PIXABAY_KEY=<yourkey>
+```
+
 ## Testing
 
-This app uses Jest to test one aspect of the server and one aspect of the client code. In server.js, the /bookTrip post route is tested to return with a status code of 200. On the client side, the convertCelsiusToFahrenheit method is tested to ensure it is converting temperatures properly. 
+This app uses Jest to test one aspect of the server and one aspect of the client code. In server.js, the /bookTrip post route is tested to return with a status code of 200. On the client side, the convertCelsiusToFahrenheit method is tested to ensure it is converting temperatures properly. To execute tests, run `npm run test`.
